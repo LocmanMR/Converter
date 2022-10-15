@@ -11,7 +11,7 @@ func main() {
 	var concatPattern string
 	splitPattern := make(map[string]int)
 
-	flag.StringVar(&pattern, "pattern", "", "Pattern")
+	flag.StringVar(&pattern, "pattern", "", "incoming pattern")
 	flag.Parse()
 
 	for _, symbol := range pattern {
@@ -22,8 +22,8 @@ func main() {
 		}
 	}
 
-	for key, value := range splitPattern {
-		concatPattern = concatPattern + key + strconv.Itoa(value)
+	for symbol, symbolCount := range splitPattern {
+		concatPattern = concatPattern + symbol + strconv.Itoa(symbolCount)
 	}
 
 	fmt.Println(concatPattern)
